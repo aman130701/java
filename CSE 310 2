@@ -1,0 +1,59 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class Complex {
+private int real;
+private int imaginary;
+
+public Complex() {
+this.real = 0;
+this.imaginary = 0;
+}
+
+public Complex(int real, int imaginary) {
+this.real = real;
+this.imaginary = imaginary;
+}
+
+public void mulComplex(Complex num) {
+int newReal = (this.real * num.real) - (this.imaginary * num.imaginary);
+int newImaginary = (this.real * num.imaginary) + (this.imaginary * num.real);
+this.real = newReal;
+this.imaginary = newImaginary;
+}
+
+public void display() {
+if (imaginary < 0) {
+System.out.println(real + "" + imaginary + "i");
+} else {
+System.out.println(real + "+" + imaginary + "i");
+}
+}
+}
+
+public class Test_Complex {
+public static void main(String[] args) {
+Scanner input = new Scanner(System.in);
+
+// Read the first complex number
+int real1 = input.nextInt();
+int imaginary1 = input.nextInt();
+Complex num1 = new Complex(real1, imaginary1);
+
+// Read the second complex number
+int real2 = input.nextInt();
+int imaginary2 = input.nextInt();
+Complex num2 = new Complex(real2, imaginary2);
+
+// Multiply the two complex numbers
+num1.mulComplex(num2);
+
+// Display the result
+num1.display();
+
+input.close();
+}
+}
